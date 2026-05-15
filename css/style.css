@@ -1635,3 +1635,50 @@ body::before {
         padding: 30px 20px;
     }
 }
+
+/* 品牌展示区 - 移动端横向滚动 */
+.brand-carousel {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.brand-carousel .brand-card {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .brand-carousel {
+        display: flex !important;
+        grid-template-columns: unset !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 20px !important;
+        padding-bottom: 20px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(14, 165, 233, 0.3) transparent;
+    }
+
+    .brand-carousel::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .brand-carousel::-webkit-scrollbar-track {
+        background: rgba(241, 245, 249, 0.5);
+        border-radius: 3px;
+    }
+
+    .brand-carousel::-webkit-scrollbar-thumb {
+        background: rgba(14, 165, 233, 0.4);
+        border-radius: 3px;
+    }
+
+    .brand-carousel::-webkit-scrollbar-thumb:hover {
+        background: rgba(14, 165, 233, 0.6);
+    }
+
+    .brand-carousel .brand-card {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+}
