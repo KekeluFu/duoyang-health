@@ -1166,15 +1166,29 @@ body::before {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 50px;
+    padding: 40px;
     border-radius: 20px;
     border: 1px solid var(--border-glass);
     box-shadow: var(--shadow-glass);
     margin-bottom: 40px;
-    line-height: 1.9;
-    font-size: 16px;
-    color: var(--text-gray);
     position: relative;
+    overflow: hidden;
+}
+
+.about-intro h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    position: relative;
+    z-index: 1;
+}
+
+.about-intro p {
+    color: var(--text-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
 }
 
 .mission-vision {
@@ -1217,8 +1231,8 @@ body::before {
 }
 
 .mv-card h3 {
-    font-size: 26px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 12px;
     color: var(--text-dark);
     position: relative;
     z-index: 1;
@@ -1226,8 +1240,8 @@ body::before {
 
 .mv-card p {
     color: var(--text-gray);
-    line-height: 1.8;
-    font-size: 16px;
+    line-height: 1.7;
+    font-size: 15px;
     position: relative;
     z-index: 1;
 }
@@ -1538,7 +1552,7 @@ body::before {
     .cta-buttons {
         flex-direction: column;
         align-items: center;
-        gap: 4px !important;
+        gap: 16px !important;
         margin-top: 50px !important;
     }
 
@@ -1636,6 +1650,20 @@ body::before {
         margin-bottom: 0 !important;
         border-radius: 0 !important;
         display: block;
+    }
+
+    .about-intro > h3,
+    .about-intro > p {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about-intro > h3 {
+        padding-top: 20px;
+    }
+
+    .about-intro > p {
+        padding-bottom: 20px;
     }
 
     .mv-card {
