@@ -1259,6 +1259,7 @@ body::before {
     height: 100%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
     pointer-events: none;
+    border-radius: inherit;
 }
 
 .qualifications h3 {
@@ -1495,12 +1496,20 @@ body::before {
     }
 
     .hero {
-        min-height: 90vh;
-        padding: 100px 15px 60px;
+        min-height: 70vh;
+        padding-top: 180px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 40px;
+    }
+
+    .hero-with-image {
+        background-position: 75% center !important;
     }
 
     .hero .hero-content-wrapper {
         margin-left: 20px !important;
+        margin-top: 100px !important;
         max-width: 100% !important;
     }
 
@@ -1515,23 +1524,46 @@ body::before {
 
     .hero h1 {
         font-size: 28px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
     .hero .subtitle {
         font-size: 16px;
         margin-bottom: 30px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
     .cta-buttons {
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        gap: 4px !important;
+        margin-top: 50px !important;
+    }
+
+    .cta-buttons > div {
+        width: 80%;
+        max-width: 280px;
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
     }
 
     .btn {
+        display: flex;
+        width: 100% !important;
+        max-width: none !important;
         padding: 12px 28px;
         font-size: 15px;
-        width: 100%;
         justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .hero .btn-primary,
+    .hero .btn-secondary {
+        margin: 0 !important;
+        text-align: center;
     }
 
     .section {
@@ -1580,7 +1612,30 @@ body::before {
     }
 
     .about-intro {
-        padding: 30px 20px;
+        padding: 0 !important;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        border-radius: 20px !important;
+        box-shadow: var(--shadow-glass) !important;
+        background: rgba(255, 255, 255, 0.8) !important;
+        overflow: hidden !important;
+        isolation: isolate !important;
+    }
+
+    .about-intro > div:first-child {
+        order: 2;
+        padding: 24px 20px;
+    }
+
+    .about-intro > img {
+        order: 1;
+        width: 100% !important;
+        height: auto !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        border-radius: 0 !important;
+        display: block;
     }
 
     .mv-card {
@@ -1588,7 +1643,31 @@ body::before {
     }
 
     .qualifications {
-        padding: 30px 20px;
+        padding: 0 !important;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        border-radius: 20px !important;
+        box-shadow: var(--shadow-glass) !important;
+        background: rgba(14, 165, 233, 0.05) !important;
+        overflow: hidden !important;
+        isolation: isolate !important;
+    }
+
+    .qualifications > div:first-child {
+        order: 1;
+        overflow: hidden;
+        border-radius: 0;
+    }
+
+    .qualifications > div:first-child img {
+        border-radius: 0 !important;
+        display: block;
+        width: 100% !important;
+    }
+
+    .qualifications > div:last-child {
+        order: 2;
+        padding: 24px 20px;
     }
 
     .footer {
@@ -1636,49 +1715,61 @@ body::before {
     }
 }
 
-/* 品牌展示区 - 移动端横向滚动 */
+/* 品牌展示区 - 弹性触摸滑动 */
 .brand-carousel {
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 }
 
 .brand-carousel .brand-card {
-    scroll-snap-align: center;
     flex-shrink: 0;
 }
 
+/* 功能特性区 - 弹性触摸滑动 */
+.feature-carousel {
+    -webkit-overflow-scrolling: touch;
+}
+
+.feature-carousel .feature-item {
+    flex-shrink: 0;
+}
+
+/* 弹性滑动内部容器 */
+.elastic-inner {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+}
+
 @media (max-width: 768px) {
-    .brand-carousel {
-        display: flex !important;
+    .brand-carousel,
+    .feature-carousel {
+        display: block !important;
         grid-template-columns: unset !important;
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow: hidden !important;
+        gap: 0 !important;
+        padding-bottom: 10px;
+        position: relative;
+    }
+
+    .brand-carousel::-webkit-scrollbar,
+    .feature-carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .brand-carousel .elastic-inner,
+    .feature-carousel .elastic-inner {
         gap: 20px !important;
-        padding-bottom: 20px;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(14, 165, 233, 0.3) transparent;
-    }
-
-    .brand-carousel::-webkit-scrollbar {
-        height: 6px;
-    }
-
-    .brand-carousel::-webkit-scrollbar-track {
-        background: rgba(241, 245, 249, 0.5);
-        border-radius: 3px;
-    }
-
-    .brand-carousel::-webkit-scrollbar-thumb {
-        background: rgba(14, 165, 233, 0.4);
-        border-radius: 3px;
-    }
-
-    .brand-carousel::-webkit-scrollbar-thumb:hover {
-        background: rgba(14, 165, 233, 0.6);
     }
 
     .brand-carousel .brand-card {
         width: 280px !important;
         min-width: 280px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .feature-carousel .feature-item {
+        width: 300px !important;
+        min-width: 300px !important;
+        flex-shrink: 0 !important;
     }
 }
